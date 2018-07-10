@@ -14,6 +14,10 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+  "game",
+  "brain"
+  ],
   "author": "gyulia",
   "license": "ISC",
   "devDependencies": {

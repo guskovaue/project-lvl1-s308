@@ -14,9 +14,10 @@ const checkUserAnswer = (userAnswer, rightAnswer, name) => {
   if (userAnswer !== rightAnswer) {
     console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}"`);
     console.log(`Let's try again, ${name}!`);
-    process.exit();
+    return false;
   }
   console.log('Correct!');
+  return true;
 };
 
 export default (gameRules, getQuestionAndAnswer) => {
@@ -27,7 +28,9 @@ export default (gameRules, getQuestionAndAnswer) => {
     const { question, rightAnswer } = getQuestionAndAnswer();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    checkUserAnswer(userAnswer, rightAnswer, userName);
+    if (!checkUserAnswer(userAnswer, rightAnswer, userName)) {
+      return;
+    }
   }
   console.log(`Congratulations, ${userName}!`);
 };

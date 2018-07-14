@@ -1,4 +1,4 @@
-import runGameProcess from '../base_code';
+import runGameProcess from '../common';
 import { getRandomInt, isEven } from '../utils';
 
 const gameRules = 'Answer "yes" if number even otherwise answer "no"';

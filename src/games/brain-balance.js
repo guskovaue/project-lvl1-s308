@@ -1,4 +1,4 @@
-import runGameProcess from '../base_code';
+import runGameProcess from '../common';
 import { getRandomInt } from '../utils';
 
 const gameRules = 'Balance the given number.';

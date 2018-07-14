@@ -1,10 +1,10 @@
 import { getRandomInt, gameProcess } from '../base_code';
 
 // create new expression
-const getRandomExpr = (range) => {
+const getRandomExpr = () => {
   const operators = ['+', '-', '*'];
   const randomOperator = operators[Math.floor(Math.random() * operators.length)];
-  return `${getRandomInt(range)} ${randomOperator} ${getRandomInt(range)}`;
+  return `${getRandomInt()} ${randomOperator} ${getRandomInt()}`;
 };
 
 // calculate right answer

@@ -1,11 +1,4 @@
-import {
-  getRandomInt,
-  showBeginPhrase,
-  showEndPhrase,
-  showGameRules,
-  greetUser,
-  gameProcess,
-} from '../base_code';
+import { getRandomInt, gameProcess } from '../base_code';
 
 // create new expression
 const getRandomExpr = (range) => {
@@ -32,9 +25,6 @@ const calculate = (expr) => {
 };
 
 export default () => {
-  showBeginPhrase();
-  showGameRules('What is the result of the expression?');
-  const userName = greetUser();
-  gameProcess(getRandomExpr, calculate, userName);
-  showEndPhrase(userName);
+  const gameRules = 'What is the result of the expression?';
+  gameProcess(gameRules, getRandomExpr, calculate);
 };

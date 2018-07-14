@@ -21,22 +21,30 @@ export const greetUser = () => {
   return name;
 };
 
-export const getResultExpr = (userAnswer, answer, name) => {
+export const checkUserAnswer = (userAnswer, answer, name) => {
   if (userAnswer !== answer) {
     console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}"`);
     console.log(`Let's try again, ${name}!`);
     process.exit();
   }
+  console.log('Correct!');
 };
 
-export const gameProcess = (getQuestionFunc, getRightAnswerFunc, name) => {
+export const showQuestionCheckAnswer = (getQuestion, getRightAnswer, userName) => {
   const tryNumber = 3;
   for (let i = 0; i < tryNumber; i += 1) {
-    const question = getQuestionFunc();
-    const answer = getRightAnswerFunc(question);
+    const question = getQuestion();
+    const answer = getRightAnswer(question);
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    getResultExpr(userAnswer, answer, name);
-    console.log('Correct!');
+    checkUserAnswer(userAnswer, answer, userName);
   }
+};
+
+export const gameProcess = (gameRules, getQuestion, getRightAnswer) => {
+  showBeginPhrase();
+  showGameRules(gameRules);
+  const userName = greetUser();
+  showQuestionCheckAnswer(getQuestion, getRightAnswer, userName);
+  showEndPhrase(userName);
 };

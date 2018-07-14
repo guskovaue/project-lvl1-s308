@@ -1,50 +1,33 @@
 import readlineSync from 'readline-sync';
 
-export const getRandomInt = () => {
-  const range = 100;
-  return Math.floor(Math.random() * range);
-};
+const greeting = 'Welcome to the Brain Games!';
+const tryNumber = 3;
 
-export const showBeginPhrase = () => {
-  const greeting = 'Welcome to the Brain Games!';
-  console.log(greeting);
-};
-
-export const showEndPhrase = name => console.log(`Congratulations, ${name}!`);
-
-export const showGameRules = phrase => console.log(phrase);
-
-export const greetUser = () => {
+const greetUser = () => {
   const nameRequest = '\nMay I have your name? ';
   const name = readlineSync.question(nameRequest);
   console.log(`Hello, ${name}!\n`);
   return name;
 };
 
-export const checkUserAnswer = (userAnswer, answer, name) => {
-  if (userAnswer !== answer) {
-    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}"`);
+const checkUserAnswer = (userAnswer, rightAnswer, name) => {
+  if (userAnswer !== rightAnswer) {
+    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}"`);
     console.log(`Let's try again, ${name}!`);
     process.exit();
   }
   console.log('Correct!');
 };
 
-export const showQuestionCheckAnswer = (getQuestion, getRightAnswer, userName) => {
-  const tryNumber = 3;
+export default (gameRules, getQuestionAndAnswer) => {
+  console.log(greeting);
+  console.log(gameRules);
+  const userName = greetUser();
   for (let i = 0; i < tryNumber; i += 1) {
-    const question = getQuestion();
-    const answer = getRightAnswer(question);
+    const { question, rightAnswer } = getQuestionAndAnswer();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    checkUserAnswer(userAnswer, answer, userName);
+    checkUserAnswer(userAnswer, rightAnswer, userName);
   }
-};
-
-export const gameProcess = (gameRules, getQuestion, getRightAnswer) => {
-  showBeginPhrase();
-  showGameRules(gameRules);
-  const userName = greetUser();
-  showQuestionCheckAnswer(getQuestion, getRightAnswer, userName);
-  showEndPhrase(userName);
+  console.log(`Congratulations, ${userName}!`);
 };

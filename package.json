@@ -1,6 +1,6 @@
 {
   "name": "brain-games-package",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "game set",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +10,7 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
+    "brain-progression": "dist/bin/brain-progression.js",
     "brain-balance": "dist/bin/brain-balance.js",
     "brain-calc": "dist/bin/brain-calc.js",
     "brain-even": "dist/bin/brain-even.js",

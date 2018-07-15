@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import findNodGame from '../games/brain-gcd';
+import findNodGame from '../games/gcd';
 
 findNodGame();

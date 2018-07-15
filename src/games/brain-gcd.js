@@ -1,15 +1,12 @@
-import runGameProcess from '../common';
-import { getRandomInt } from '../utils';
+import runGameProcess from '../flow';
+import getRandomInt from '../utils';
 
-const gameRules = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 const numberRange = 100;
 
-// return new question and right answer
-const getQuestionAndAnswer = () => {
-  const question = `${getRandomInt(numberRange)} ${getRandomInt(numberRange)}`;
-  const questionParts = question.split(' ');
-  let firstNumber = Number(questionParts[0]);
-  let secondNumber = Number(questionParts[1]);
+const gcdCount = (number1, number2) => {
+  let firstNumber = number1;
+  let secondNumber = number2;
   while (firstNumber !== 0 && secondNumber !== 0) {
     if (firstNumber > secondNumber) {
       firstNumber %= secondNumber;
@@ -17,8 +14,16 @@ const getQuestionAndAnswer = () => {
       secondNumber %= firstNumber;
     }
   }
-  const rightAnswer = String(firstNumber + secondNumber);
+  return firstNumber + secondNumber;
+};
+
+// return new question and right answer
+const getQuestionAndAnswer = () => {
+  const firstNumber = getRandomInt(numberRange);
+  const secondNumber = getRandomInt(numberRange);
+  const question = `${firstNumber} ${secondNumber}`;
+  const rightAnswer = String(gcdCount(firstNumber, secondNumber));
   return { question, rightAnswer };
 };
 
-export default () => runGameProcess(gameRules, getQuestionAndAnswer);
+export default () => runGameProcess(description, getQuestionAndAnswer);

@@ -1,15 +1,17 @@
-import runGameProcess from '../common';
-import { getRandomInt, isEven } from '../utils';
+import runGameProcess from '../flow';
+import getRandomInt from '../utils';
 
-const gameRules = 'Answer "yes" if number even otherwise answer "no"';
+const description = 'Answer "yes" if number even otherwise answer "no"';
 const numberRange = 10000;
 
-// calculate right answer
+export const isEven = num => num % 2 === 0;
+
 // return new question and right answer
 const getQuestionAndAnswer = () => {
-  const question = `${getRandomInt(numberRange)}`;
-  const rightAnswer = isEven(question) ? 'yes' : 'no';
+  const number = getRandomInt(numberRange);
+  const question = `${number}`;
+  const rightAnswer = isEven(number) ? 'yes' : 'no';
   return { question, rightAnswer };
 };
 
-export default () => runGameProcess(gameRules, getQuestionAndAnswer);
+export default () => runGameProcess(description, getQuestionAndAnswer);

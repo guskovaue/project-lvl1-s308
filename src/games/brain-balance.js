@@ -1,13 +1,13 @@
-import runGameProcess from '../common';
-import { getRandomInt } from '../utils';
+import runGameProcess from '../flow';
+import getRandomInt from '../utils';
 
-const gameRules = 'Balance the given number.';
+const description = 'Balance the given number.';
 const numberRange = 1000;
 
 // return new question and right answer
 const getQuestionAndAnswer = () => {
   const question = `${getRandomInt(numberRange)}`;
-  const list = question.split('').map(i => Number(i));
+  const list = question.split('').map(Number);
   const sum = list.reduce((total, number) => total + number);
   const listLength = list.length;
   const remainder = sum % listLength;
@@ -20,4 +20,4 @@ const getQuestionAndAnswer = () => {
   return { question, rightAnswer };
 };
 
-export default () => runGameProcess(gameRules, getQuestionAndAnswer);
+export default () => runGameProcess(description, getQuestionAndAnswer);

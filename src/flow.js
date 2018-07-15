@@ -10,27 +10,20 @@ const greetUser = () => {
   return name;
 };
 
-const checkUserAnswer = (userAnswer, rightAnswer, name) => {
-  if (userAnswer !== rightAnswer) {
-    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}"`);
-    console.log(`Let's try again, ${name}!`);
-    return false;
-  }
-  console.log('Correct!');
-  return true;
-};
-
-export default (gameRules, getQuestionAndAnswer) => {
+export default (description, getQuestionAndAnswer) => {
   console.log(greeting);
-  console.log(gameRules);
+  console.log(description);
   const userName = greetUser();
   for (let i = 0; i < tryNumber; i += 1) {
     const { question, rightAnswer } = getQuestionAndAnswer();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (!checkUserAnswer(userAnswer, rightAnswer, userName)) {
+    if (userAnswer !== rightAnswer) {
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}"`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${userName}!`);
 };

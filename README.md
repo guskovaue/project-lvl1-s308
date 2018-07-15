@@ -4,7 +4,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2c7234844a17578315b6/test_coverage)](https://codeclimate.com/github/guskovaue/project-lvl1-s308/test_coverage)
 [![Build Status](https://travis-ci.org/guskovaue/project-lvl1-s308.svg?branch=master)](https://travis-ci.org/guskovaue/project-lvl1-s308)
 
-6 challenging games for your fun and education.
+6 challenging games for your joy and education.
 - Number Balance
 - Prime Numbers
 - Progression
@@ -12,10 +12,22 @@
 - Evens and Odds
 - Calculations
 
+![Evens and Odds](https://guskovaue.github.io/project-lvl1-s308/gifs/brain-even.gif "Evens and Odds")
+![Number Balance](https://guskovaue.github.io/project-lvl1-s308/gifs/brain-balance.gif "Number Balance")
+
 ## How to install and run
 
 `npm install -g brain-games-package`
 
+This will install games globally. You can run them with following commands:
+
+- `brain-balance` - Number Balance
+- `brain-prime` - Prime Numbers
+- `brain-progression` - Progression
+- `brain-gcd` - The Greatest Common Denumenator!
+- `brain-even` - Evens and Odds
+- `brain-calc` - Calculations
+
 ## Author
 
-Julia Guskova
+Julia Guskova shkolnikova_yuli@mail.ru

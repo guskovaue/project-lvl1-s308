@@ -30,4 +30,4 @@ This will install games globally. You can run them with following commands:
 
 ## Author
 
-Julia Guskova shkolnikova_yuli@mail.ru
+Yulia Guskova shkolnikova_yuli@mail.ru
